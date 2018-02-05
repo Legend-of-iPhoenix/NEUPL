@@ -23,7 +23,6 @@ function executeProgram() {
   	}
   }
   console.clear();
-  console.log("==== Execution Begins ====");
   var program = document.getElementById("input").value,
     programCounter = 0,
     TheStack = [],
@@ -87,5 +86,4 @@ function executeProgram() {
       programArray = program.split('');
     }
   }
-  console.log("==== Execution Ends ====");
 }
