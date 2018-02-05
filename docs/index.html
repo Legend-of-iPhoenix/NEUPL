@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		div {
+			border: 5px solid #000;
+			padding: 2px;
+			color: #000;
+		}
+		input {
+			width: 25%;
+			display: block;
+			margin-bottom: 50px;
+		}
+		textarea {
+			width: 100%;
+		}
+		span {
+			color: #555;
+		}
+		pre {
+			display: inline-block;
+			padding: 1px;
+			background-color: #eee;
+		}
+	</style>
+</head>
+<body>
+	<h1>NEUPL syntax</h1>
+	<p> NEUPL is a stack-based language. Most operations rely on the internal stack in some way. </p>
+	<p style="font-size: 2px;"> Please note that this language is not Turing-Complete, or even anywhere close. </p>
+	<h2> Commands </h2>
+	<p> NEUPL recognises a few commands: </p>
+	<ul> 
+		<li><pre>&lt;</pre>: Pushes the preceeding character onto the stack.</li>
+		<li><pre>p</pre>: <strong>P</strong>op a character, and...<ul>
+			<li><pre>p</pre>: <strong>p</strong>rint it.</li>
+			<li><pre>i</pre>: <strong>i</strong>nsert it into the program.</li>
+		</ul></li>
+		<li><pre>l</pre>: <strong>L</strong>oop through the stack, popping each character and...<ul>
+			<li><pre>p</pre>: <strong>p</strong>rinting it.</li>
+			<li><pre>e</pre>: <strong>e</strong>xecuting it as an instruction.</li>
+		</ul></li>
+	</ul>
+	<h2> Example Programs </h2>
+	<p><pre></pre></p>
+	<div style="visibility: hidden">
+		Congratulations, you found the list of my favorite NEUPL programs :)
+	</div>
+</body>
+</html>

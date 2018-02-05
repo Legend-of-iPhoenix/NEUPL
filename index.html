@@ -9,14 +9,23 @@
 			padding: 2px;
 			color: #000;
 		}
+		input {
+			width: 25%;
+			display: block;
+			margin-bottom: 50px;
+		}
+		textarea {
+			width: 100%;
+		}
 		span {
 			color: #555;
 		}
 	</style>
 </head>
 <body>
-	<textarea id="input"></textarea>
-	<button onclick="executeProgram();"></button>
+	<input type="text" placeholder="Enter Text to be NEUPL-ified" id="NEUPLifybox" oninput="NEUPLify(document.getElementById('NEUPLifybox').value)">
+	<textarea id="input" width="100%" height="50vh"></textarea>
+	<button onclick="executeProgram();">Execute Program</button>
 	<div id="output"></div>
 </body>
 </html>
