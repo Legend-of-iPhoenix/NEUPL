@@ -31,7 +31,7 @@
 <body>
 	<h1>NEUPL syntax</h1>
 	<p> NEUPL is a stack-based language. Most operations rely on the internal stack in some way. </p>
-	<p style="font-size: 2px;"> Please note that this language is not Turing-Complete, or even anywhere close. </p>
+	<p style="font-size: 2px;"> Please note that this language is not Turing-Complete. </p>
 	<h2> Commands </h2>
 	<p> NEUPL recognises a few commands: </p>
 	<ul> 
@@ -42,9 +42,9 @@
 		</ul></li>
 		<li><pre>l</pre>: <strong>L</strong>oop through the stack, popping each character and...<ul>
 			<li><pre>p</pre>: <strong>p</strong>rinting it.</li>
-			<li><pre>e</pre>: <strong>e</strong>xecuting it as an instruction.</li>
+			<li><pre>e</pre>: <strong>e</strong>xecuting it as an instruction. (note, the stack is implicitly reversed before its characters are processed as instructions. This is for ease of use.)</li> 
 		</ul></li>
-		<li><pre>r</pre>: Reverse (flip) the...<ul>
+		<li><pre>r</pre>: <strong>R</strong>everse (flip) the...<ul>
 			<li><pre>s</pre>: <strong>S</strong>tack</li>
 			<li><pre>p</pre>: <strong>P</strong>rogram (UNIMPLEMENTED. THIS WILL NOT WORK AS OF THE LATEST VERSION.)</li>
 		</ul></li>
