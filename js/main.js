@@ -35,21 +35,25 @@ function executeProgram() {
     programLevel = 0,
     programArray = program.split(''),
     initialExecution = true,
-    inString = false;
+    inString = false,
+    curChar = "",
+    lastChar = "",
+    doImplicitPrint = true;
   while ((programStack.length > 0) || (programCounter < (program.length - 1))) {
     if (initialExecution)
       programStack.pop();
     initialExecution = false;
     while (programCounter < programArray.length) {
-      var curChar = programArray[programCounter].toLowerCase();
+    	lastChar = curChar;
+      curChar = programArray[programCounter].toLowerCase();
       if (showFunDebugThings()) {
         console.log('[' + programCounter + '][' + curChar + '][' + TheStack.join('') + ']');
       }
-      if (curChar == '"') {
+      if (curChar == '"' && lastChar != '\\') {
         inString = !inString;
       } else {
-        if (inString) {
-          TheStack.push(curChar);
+        if (inString && !(programArray[Math.min(programCounter + 1, 0)] == '"' && curChar == '\\')) {
+          TheStack.push(programArray[programCounter]);
         } else {
           if (curChar == '<') {
             TheStack.push(programArray[Math.max(programCounter - 1, 0)]);
@@ -64,7 +68,7 @@ function executeProgram() {
             if (nextChar == 's') {
               TheStack = TheStack.reverse();
             } else {
-              /* dysfunctional >_> if (nextChar == 'p') {
+              /* disfunctional >_> if (nextChar == 'p') {
                 program = programArray.reverse().join('');
                 programArray = programArray.reverse();
               }*/
@@ -74,6 +78,7 @@ function executeProgram() {
           if (curChar == 'p') {
             var nextChar = programArray[Math.min(programCounter + 1, programArray.length - 1)];
             if (nextChar == 'p') {
+            	doImplicitPrint = false;
               programCounter++;
               console.log(TheStack.pop())
             } else {
@@ -88,6 +93,7 @@ function executeProgram() {
           if (curChar == 'l') {
             var nextChar = programArray[Math.min(programCounter + 1, programArray.length - 1)];
             if (nextChar == 'p') {
+            	doImplicitPrint = false;
               programCounter++;
               console.log(TheStack.reverse().join(''));
               TheStack = [];
@@ -114,5 +120,8 @@ function executeProgram() {
         programArray = program.split('');
       }
     }
+  }
+  if (doImplicitPrint) {
+  	console.log(TheStack.reverse().join(''));
   }
 }
