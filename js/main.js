@@ -1,9 +1,9 @@
 function showFunDebugThings() {
-	//override this function with the following code to show debug things.
-	return false;
+  //override this function with the following code to show debug things.
+  return false;
 }
 
-// creates an overcomplicated NEUPL program that outputs a given string.
+// creates an overcomplicated NEUPL program that outputs a given string. Just for demo purposes, but I'm leaving it in the code for now.
 function NEUPLify(string) {
   if (string) {
     document.getElementById("input").value = string.split("").reverse().join("").split("").join("<<").replace(/ <</g, " ") + "<<l<p<le";
@@ -15,12 +15,12 @@ window.onload = function () {
 }
 
 function executeProgram() {
-	var output = document.getElementById('output');
+  var output = document.getElementById('output');
   history.replaceState({}, "", location.origin + location.pathname + "?c=" + encodeURI(document.getElementById("input").value));
   output.innerHTML = "";
   var program = document.getElementById("input").value,
     programCounter = 0,
-    TheStack = [],
+    TheStack = document.getElementById("programInput").value.split('').reverse(),
     programStack = ["a"],
     programCounterStack = [],
     programLevel = 0,
@@ -35,7 +35,7 @@ function executeProgram() {
       programStack.pop();
     initialExecution = false;
     while (programCounter < programArray.length) {
-    	lastChar = curChar;
+      lastChar = curChar;
       curChar = programArray[programCounter].toLowerCase();
       if (showFunDebugThings()) {
         output.innerText += '[' + programCounter + '][' + curChar + '][' + TheStack.join('') + ']\n';
@@ -69,7 +69,7 @@ function executeProgram() {
           if (curChar == 'p') {
             var nextChar = programArray[Math.min(programCounter + 1, programArray.length - 1)];
             if (nextChar == 'p') {
-            	doImplicitPrint = false;
+              doImplicitPrint = false;
               programCounter++;
               output.innerText += TheStack.pop() + '\n';
             } else {
@@ -77,6 +77,10 @@ function executeProgram() {
                 programCounter++;
                 program = program.slice(0, programCounter + 1) + TheStack.pop() + program.slice(programCounter + 1);
                 programArray = program.split('');
+              } else {
+                if (nextChar == 'n')
+                  TheStack.pop();
+                programCounter++;
               }
             }
           }
@@ -84,7 +88,7 @@ function executeProgram() {
           if (curChar == 'l') {
             var nextChar = programArray[Math.min(programCounter + 1, programArray.length - 1)];
             if (nextChar == 'p') {
-            	doImplicitPrint = false;
+              doImplicitPrint = false;
               programCounter++;
               output.innerText += TheStack.reverse().join('') + '\n';
               TheStack = [];
@@ -97,6 +101,10 @@ function executeProgram() {
                 programArray = TheStack;
                 programLevel++;
                 TheStack = [];
+              } else {
+                if (nextChar == 'n') {
+                  TheStack = [];
+                }
               }
             }
           }
@@ -113,6 +121,6 @@ function executeProgram() {
     }
   }
   if (doImplicitPrint) {
-  	output.innerText += TheStack.reverse().join('') + '\n';
+    output.innerText += TheStack.reverse().join('') + '\n';
   }
 }
