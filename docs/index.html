@@ -35,7 +35,7 @@
 	<h2> Commands </h2>
 	<p> NEUPL recognises a few commands: </p>
 	<ul> 
-		<li><pre>&lt;</pre>: Pushes the preceeding character onto the stack.</li>
+		<li><pre>&lt;</pre>: Pushes the preceeding character onto the stack. (note, spaces are automatically pushed to the stack. You don't need a <pre>&lt;</pre> after them.)</li>
 		<li><pre>p</pre>: <strong>P</strong>op a character, and...<ul>
 			<li><pre>p</pre>: <strong>p</strong>rint it.</li>
 			<li><pre>i</pre>: <strong>i</strong>nsert it into the program.</li>
@@ -44,7 +44,11 @@
 			<li><pre>p</pre>: <strong>p</strong>rinting it.</li>
 			<li><pre>e</pre>: <strong>e</strong>xecuting it as an instruction.</li>
 		</ul></li>
+		<li><pre>r</pre>: Reverse (flip) the...<ul>
+			<li><pre>s</pre>: <strong>S</strong>tack</li>
+			<li><pre>p</pre>: <strong>P</strong>rogram (UNIMPLEMENTED. THIS WILL NOT WORK AS OF THE LATEST VERSION.)</li>
+		</ul></li>
 	</ul>
-	<h2> Example Programs (WIP)</h2>
+	Characters inside of strings are automatically pushed to the stack.
 </body>
 </html>
