@@ -39,17 +39,20 @@
 		<li><pre>p</pre>: <strong>P</strong>op a character, and...<ul>
 			<li><pre>p</pre>: <strong>p</strong>rint it.</li>
 			<li><pre>i</pre>: <strong>i</strong>nsert it into the program.</li>
+			<li><pre>n</pre>: do <strong>n</strong>othing with it. (Just pops a character off of the stack.)</li>
 		</ul></li>
 		<li><pre>l</pre>: <strong>L</strong>oop through the stack, popping each character and...<ul>
 			<li><pre>p</pre>: <strong>p</strong>rinting it.</li>
 			<li><pre>e</pre>: <strong>e</strong>xecuting it as an instruction. (note, the stack is implicitly reversed before its characters are processed as instructions. This is for ease of use.)</li> 
+			<li><pre>n</pre>: doing <strong>n</strong>othing with it. This effectively clears the stack.</li>
 		</ul></li>
 		<li><pre>r</pre>: <strong>R</strong>everse (flip) the...<ul>
 			<li><pre>s</pre>: <strong>S</strong>tack</li>
 			<li><pre>p</pre>: <strong>P</strong>rogram (UNIMPLEMENTED. THIS WILL NOT WORK AS OF THE LATEST VERSION.)</li>
 		</ul></li>
 	</ul>
-	<p> Characters inside of quotation marks are automatically pushed to the stack.</p>
+	<p> Characters inside of quotation marks are automatically pushed to the stack. </p>
 	<p> If you do not explicitly print anything during the program, the contents of the stack will be implicitly printed.</p>
+	<p> Input to NEUPL is flipped and inserted into the stack at program execution. </p>
 </body>
 </html>
