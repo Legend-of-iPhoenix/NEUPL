@@ -101,7 +101,7 @@ function executeProgram() {
           }
         }
       }
-      if (showFunDebugThings {
+      if (showFunDebugThings) {
         output.innerText += '[' + programCounter + '][' + curChar + '][' + TheStack.join('') + ']\n';
       }
       programCounter++;
