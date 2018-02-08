@@ -29,7 +29,7 @@ function executeProgram() {
     while (programCounter < programArray.length) {
       lastChar = curChar;
       curChar = programArray[programCounter].toLowerCase();
-      if (curChar !== "<" && programArray[Math.min(programCounter + 1, 0)] !== "<") {
+      if (programArray[Math.min(programCounter + 1, 0)] !== "<" || curChar == "<") {
         if (curChar == '"' && lastChar != '\\') {
           inString = !inString;
         } else {
