@@ -88,7 +88,7 @@ function executeProgram() {
             	} else {
             		times = parseInt(times);
             	}
-            	TheStack.push(TheStack.pop().repeat(times))
+            	TheStack = (TheStack.join('') + TheStack.pop().repeat(times)).split('');
             }
             if (curChar == '=') {
             	TheStack.push(TheStack.pop() == TheStack.pop() ? 't' : 'f');
