@@ -10,7 +10,7 @@ window.onload = function () {
 function executeProgram() {
   var output = document.getElementById('output');
   history.replaceState({}, "", location.origin + location.pathname + "?c=" + encodeURI(document.getElementById("input").value) + (document.getElementById("programInput").value ? "&i="+encodeURI(document.getElementById("programInput").value) : ""));
-  output.innerHTML = "";
+  output.value = "";
   var program = document.getElementById("input").value,
     programCounter = 0,
     TheStack = document.getElementById("programInput").value.split('').reverse(),
