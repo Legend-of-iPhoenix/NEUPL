@@ -1,4 +1,4 @@
-var doFunDebugThings = false;
+var showFunDebugThings = false;
 
 window.onload = function () {
   document.getElementById("input").value = decodeURI(location.search.match(/\?c\=([^\&]*)/)[1]);
