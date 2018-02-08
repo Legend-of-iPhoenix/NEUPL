@@ -98,7 +98,7 @@ function executeProgram() {
               if (nextChar == 'p') {
                 doImplicitPrint = false;
                 programCounter++;
-                output.innerText += TheStack.pop() + '\n';
+                output.value += TheStack.pop() + '\n';
               } else {
                 if (nextChar == 'i') {
                   programCounter++;
@@ -116,7 +116,7 @@ function executeProgram() {
               if (nextChar == 'p') {
                 doImplicitPrint = false;
                 programCounter++;
-                output.innerText += TheStack.reverse().join('') + '\n';
+                output.value += TheStack.reverse().join('') + '\n';
                 TheStack = [];
               } else {
                 if (nextChar == 'e') {
@@ -138,7 +138,7 @@ function executeProgram() {
         }
       }
       if (showFunDebugThings) {
-        output.innerText += '[' + programCounter + '][' + curChar + '][' + TheStack.join('') + ']\n';
+        output.value += '[' + programCounter + '][' + curChar + '][' + TheStack.join('') + ']\n';
       }
       programCounter++;
     }
@@ -151,7 +151,7 @@ function executeProgram() {
     }
   }
   if (doImplicitPrint) {
-    output.innerText += TheStack.reverse().join('') + '\n';
+    output.value += TheStack.reverse().join('') + '\n';
   }
 }
 var tgif = "";
