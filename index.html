@@ -6,6 +6,9 @@
 	<title>NEUPL Interpreter</title>
 	<script type="text/javascript" src="js/main.js"></script>
 	<style>
+		* {
+			font-family: monospace;
+		}
 		div {
 			border: 5px solid #000;
 			padding: 2px;
@@ -32,6 +35,6 @@
 	<textarea id="input" width="100%" height="50vh" placeholder="Program"></textarea>
 	<input type="text" id="programInput" placeholder="Input">
 	<button onclick="executeProgram();">Execute Program</button>
-	<div id="output"></div>
+	<textarea id="output" disabled></textarea>
 </body>
 </html>
