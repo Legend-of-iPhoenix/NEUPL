@@ -101,7 +101,7 @@ function executeProgram() {
               if (nextChar == 'p') {
                 doImplicitPrint = false;
                 programCounter++;
-                output.value += TheStack.pop() + '\n';
+                output.value += TheStack.pop();
               } else {
                 if (nextChar == 'i') {
                   programCounter++;
@@ -158,5 +158,16 @@ function executeProgram() {
   if (doImplicitPrint) {
     output.value += TheStack.reverse().join('') + '\n';
   }
+  resizeTextarea();
 }
+
+function resizeTextarea() {
+  var output = document.getElementById("output");
+  var div = document.createElement('div');
+  document.body.appendChild(div)
+  div.innerText = output.value;
+  output.style.height = div.offsetHeight+"px";
+  div.remove();
+}
+
 var tgif = "";
