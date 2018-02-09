@@ -134,7 +134,7 @@ function executeProgram() {
                   if (nextChar == 'n') {
                     TheStack = [];
                   } else {
-                    TheStack = TheStack.length.toString().split('').reverse();
+                    TheStack = (TheStack.join('') + TheStack.length.toString().split('').reverse().join('')).split('');
                   }
                 }
               }
