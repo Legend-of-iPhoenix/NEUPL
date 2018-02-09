@@ -60,6 +60,9 @@ function executeProgram() {
             	TheStack = [];
             }
 
+            if (curChar == 'a') {
+              TheStack.push(String.fromCharCode(TheStack.pop().charCodeAt(0) + TheStack.pop().charCodeAt(0)));
+            }
             if (curChar == 'i') {
             	var times = TheStack.pop();
             	if (parseInt(times).toString() === "NaN") {
@@ -130,6 +133,8 @@ function executeProgram() {
                 } else {
                   if (nextChar == 'n') {
                     TheStack = [];
+                  } else {
+                    TheStack = TheStack.length.toString().split('').reverse();
                   }
                 }
               }
