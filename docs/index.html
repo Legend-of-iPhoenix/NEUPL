@@ -33,8 +33,8 @@
 	<p> NEUPL is a stack-based language. Most operations rely on the internal stack in some way. </p>
 	<p style="font-size: 2px;"> Please note that this language is not Turing-Complete. </p>
 	<h2> Commands </h2>
-	<p> NEUPL recognises a few commands: </p>
-	<ul> 
+	<p> NEUPL recognises a few commands, all of which are case-insensitive: </p>
+	<ul>
 		<li><pre>&lt;</pre>: Pushes the preceeding character onto the stack. (note, spaces are automatically pushed to the stack. You don't need a <pre>&lt;</pre> after them.)</li>
 		<li><pre>p</pre>: <strong>P</strong>op a character, and...<ul>
 			<li><pre>p</pre>: <strong>p</strong>rint it.</li>
@@ -43,7 +43,7 @@
 		</ul></li>
 		<li><pre>l</pre>: <strong>L</strong>oop through the stack, popping each character and...<ul>
 			<li><pre>p</pre>: <strong>p</strong>rinting it.</li>
-			<li><pre>e</pre>: <strong>e</strong>xecuting it as an instruction. (note, the stack is implicitly reversed before its characters are processed as instructions. This is for ease of use.)</li> 
+			<li><pre>e</pre>: <strong>e</strong>xecuting it as an instruction. (note, the stack is implicitly reversed before its characters are processed as instructions. This is for ease of use, so that the last instruction on the stack is executed last.)</li> 
 			<li><pre>n</pre>: doing <strong>n</strong>othing with it. This effectively clears the stack.</li>
 		</ul></li>
 		<li><pre>r</pre>: <strong>R</strong>everse (flip) the...<ul>
@@ -54,6 +54,8 @@
 		<li><pre>d</pre>: Pop a character off the stack. If it is a number, <strong>d</strong>ecrement the next character in the stack's ASCII value that number of times.</li>
 		<li><pre>*</pre>: Pop a character off the stack. If it is a number, <strong>repeat</strong> it that number of times. (broken, but semi-functional.)</li>
 		<li><pre>c</pre>: <strong>C</strong>lear/empty the stack.</li>
+		<li><pre>=</pre>: Pop two characters off of the stack. If they are identical/<strong>equal</strong>, push the letter <pre>t</pre> onto the stack. Otherwise, push the letter <pre>f</pre> onto the stack.</li>
+		<li><pre>a</pre>: Pop two charaters off of the stack, add the UTF-8 character codes of the two characters, and push the resulting character onto the stack</li>
 	</ul>
 	<p> Characters inside of quotation marks are automatically pushed to the stack. </p>
 	<p> If you do not explicitly print anything during the program, the contents of the stack will be implicitly printed.</p>
